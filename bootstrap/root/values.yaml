@@ -1,0 +1,6 @@
+gitops:
+  repo: https://github.com/lbm/homelab
+  revision: main
+stacks:
+  - name: bootstrap
+    namespace: argocd  # `root` should also be in `argocd`.
