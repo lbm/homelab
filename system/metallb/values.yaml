@@ -2,7 +2,6 @@ metallb:
   controller:
     resources:
       limits:
-        cpu: 100m
         memory: 100Mi
       requests:
         cpu: 10m
@@ -11,8 +10,7 @@ metallb:
   speaker:
     resources:
       limits:
-        cpu: 100m
         memory: 100Mi
       requests:
-        cpu: 10m
+        cpu: 20m
         memory: 50Mi
