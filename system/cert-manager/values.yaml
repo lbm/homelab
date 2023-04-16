@@ -1,0 +1,37 @@
+cert-manager:
+  global:
+    leaderElection:
+      namespace: cert-manager
+
+  installCRDs: true
+
+  extraArgs:
+    - --enable-certificate-owner-ref=true
+
+  resources:
+    # limits:
+    #   memory: 128Mi
+    requests:
+      cpu: 10m
+      memory: 32Mi
+
+  prometheus:
+    enabled: false
+    servicemonitor:
+      enabled: false
+  
+  webhook:
+    resources:
+      # limits:
+      #   memory: 128Mi
+      requests:
+        cpu: 10m
+        memory: 32Mi
+  
+  cainjector:
+    resources:
+      # limits:
+      #   memory: 172Mi
+      requests:
+        cpu: 10m
+        memory: 32Mi
