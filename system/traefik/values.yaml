@@ -1,0 +1,23 @@
+# deployment:
+#   replicas: 3
+
+ingressRoute:
+  dashboard:
+    enabled: false
+
+globalArguments:
+  - --global.checknewversion=false
+  - --global.sendanonymoususage=false
+
+ports:
+  web:
+    redirectTo: websecure
+
+tlsStore:
+  default:
+    defaultCertificate:
+      secretName: wildcard-lachlan-io-tls-staging  # TODO: Swap this to the production certificate.
+
+service:
+  spec:
+    loadBalancerIP: 192.168.86.224
