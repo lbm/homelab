@@ -3,7 +3,11 @@
 
 ingressRoute:
   dashboard:
-    enabled: false
+    annotations:
+      kubernetes.io/ingress.class: traefik
+    matchRule: Host(`traefik.lachlan.io`)
+    entryPoints:
+      - websecure
 
 globalArguments:
   - --global.checknewversion=false
