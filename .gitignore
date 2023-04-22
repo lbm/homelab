@@ -4,3 +4,5 @@
 *.tgz
 Chart.lock
 charts
+
+metal
