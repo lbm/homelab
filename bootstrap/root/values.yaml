@@ -4,7 +4,7 @@ gitops:
 stacks:
   - name: bootstrap
     namespace: argocd  # `root` should also be in `argocd`.
-  - name: platform
+  # - name: platform
   - name: system
     ignoreDifferences:  # https://github.com/metallb/metallb/issues/1681
       - group: '*'
