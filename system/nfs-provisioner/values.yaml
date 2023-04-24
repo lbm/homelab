@@ -1,0 +1,16 @@
+nfs-subdir-external-provisioner:
+  nfs:
+    server: 192.168.86.207
+    path: /volume1/nfs
+  
+  storageClass:
+    defaultClass: true
+    reclaimPolicy: Retain
+
+  resources:
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
