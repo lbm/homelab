@@ -23,6 +23,9 @@ argo-cd:
       controller.operation.processors: 5
 
       server.insecure: true  # Necessary for usage with Traefik.
+    
+    secret:
+      createSecret: false
   
   controller:
     resources:
