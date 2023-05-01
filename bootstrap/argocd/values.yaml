@@ -64,6 +64,17 @@ argo-cd:
 
     metrics: *metrics
 
+    ingress:
+      enabled: true
+      annotations:
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        hajimari.io/enable: true
+        hajimari.io/icon: robot
+        hajimari.io/appName: Argo CD
+      ingressClassName: traefik
+      hosts:
+        - argocd.lachlan.io
+
   repoServer:
     resources:
       # limits:
