@@ -1,0 +1,11 @@
+hajimari:
+  env:
+    TZ: Asia/Tokyo
+  
+  hajimari:
+    namespaceSelector:
+      any: true
+  
+  persistence:
+    data:
+      enabled: false
