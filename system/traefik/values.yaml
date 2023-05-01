@@ -1,4 +1,4 @@
-traefik:  
+traefik:
   # deployment:
   #   replicas: 3
 
@@ -21,7 +21,7 @@ traefik:
   tlsStore:
     default:
       defaultCertificate:
-        secretName: wildcard-lachlan-io-tls-staging  # TODO: Swap this to the production certificate.
+        secretName: wildcard-lachlan-io-tls
 
   service:
     spec:
