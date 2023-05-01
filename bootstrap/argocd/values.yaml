@@ -68,6 +68,7 @@ argo-cd:
       enabled: true
       annotations:
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.tls: true
         hajimari.io/enable: true
         hajimari.io/icon: robot
         hajimari.io/appName: Argo CD
