@@ -1,0 +1,15 @@
+postgres-operator:
+  configGeneral:
+    enable_shm_volume: false
+  
+  configMajorVersionUpgrade:
+    major_version_upgrade_mode: "full"
+    minimal_major_version: "14"
+  
+  resources:
+    # limits:
+    #   cpu: 500m
+    #   memory: 500Mi
+    requests:
+      cpu: 100m
+      memory: 250Mi
