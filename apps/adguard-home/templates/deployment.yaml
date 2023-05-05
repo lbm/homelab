@@ -45,6 +45,7 @@ spec:
               mountPath: /opt/adguardhome/conf
       containers:
         - name: adguard-home
+          # renovate: datasource=docker
           image: adguard/adguardhome:v0.107.29
           imagePullPolicy: IfNotPresent
           env:
