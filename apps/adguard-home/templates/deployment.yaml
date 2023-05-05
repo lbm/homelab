@@ -47,8 +47,6 @@ spec:
         - name: adguard-home
           image: adguard/adguardhome:v0.107.29
           imagePullPolicy: IfNotPresent
-          args:
-            - --no-check-update
           env:
             - name: TZ
               value: Asia/Tokyo
