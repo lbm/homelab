@@ -48,10 +48,6 @@ spec:
           image: adguard/adguardhome:v0.107.29
           imagePullPolicy: IfNotPresent
           args:
-            - --config
-            - /opt/adguardhome/conf/AdGuardHome.yaml
-            - --work-dir
-            - /opt/adguardhome/work
             - --no-check-update
           env:
             - name: TZ
