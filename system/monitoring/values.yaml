@@ -37,5 +37,3 @@ kube-prometheus-stack:
             resources:
               requests:
                 storage: 30Gi
-
-  cleanPrometheusOperatorObjectNames: true
