@@ -1,7 +1,0 @@
-apiVersion: v2
-name: uptime-kuma
-version: 0.0.0
-dependencies:
-  - name: uptime-kuma
-    version: 6.0.22
-    repository: https://charts.truecharts.org/
