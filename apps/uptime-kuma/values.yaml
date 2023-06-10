@@ -1,6 +1,18 @@
 uptime-kuma:
   fallbackDefaults:
     pvcSize: 5Gi
+
+  persistence:
+    shared:
+      enabled: false
+    varlogs:
+      enabled: false
+    varrun:
+      enabled: false
+    tmp:
+      enabled: false
+    devshm:
+      enabled: false
   
   manifestManager:
     enabled: false
