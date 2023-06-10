@@ -1,0 +1,10 @@
+uptime-kuma:
+  fallbackDefaults:
+    pvcSize: 5Gi
+  
+  manifestManager:
+    enabled: false
+
+  metrics:
+    main:
+      enabled: false
