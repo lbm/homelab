@@ -23,8 +23,20 @@ spec:
       automountServiceAccountToken: true
       dnsPolicy: ClusterFirst
       enableServiceLinks: false
-      securityContext:
-        runAsUser: 0
+      initContainers:
+        - command:
+            - chown
+            - -R
+            - "1000"
+            - /app/data
+          image: busybox
+          imagePullPolicy: IfNotPresent
+          name: chown-config
+          securityContext:
+            runAsUser: 0
+          volumeMounts:
+            - name: config
+              mountPath: /app/data
       containers:
         - name: uptime-kuma
           # renovate: datasource=docker
