@@ -28,13 +28,16 @@ spec:
           # renovate: datasource=docker
           image: louislam/uptime-kuma:1.21.3
           imagePullPolicy: IfNotPresent
+          env:
+            - name: DATA_DIR
+              value: /data
           ports:
             - name: http
               containerPort: 3001
               protocol: TCP
           volumeMounts:
             - name: config
-              mountPath: /app/data
+              mountPath: /data
           livenessProbe:
             httpGet:
               port: 3001
@@ -63,23 +66,6 @@ spec:
             successThreshold: 1
             timeoutSeconds: 2
             periodSeconds: 5
-          securityContext:
-            runAsNonRoot: false
-            runAsUser: 0
-            runAsGroup: 0
-            allowPrivilegeEscalation: false
-            privileged: false
-            seccompProfile:
-              type: RuntimeDefault
-            capabilities:
-              add:
-                - CHOWN
-                - SETUID
-                - SETGID
-                - FOWNER
-                - DAC_OVERRIDE
-              drop:
-                - ALL
       volumes:
         - name: config
           persistentVolumeClaim:
