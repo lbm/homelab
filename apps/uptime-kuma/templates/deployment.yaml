@@ -26,7 +26,7 @@ spec:
       containers:
         - name: uptime-kuma
           # renovate: datasource=docker
-          image: louislam/uptime-kuma:1.23.2
+          image: louislam/uptime-kuma:1.23.3
           imagePullPolicy: IfNotPresent
           env:
             - name: DATA_DIR
