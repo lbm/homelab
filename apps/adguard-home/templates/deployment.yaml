@@ -46,7 +46,7 @@ spec:
       containers:
         - name: adguard-home
           # renovate: datasource=docker
-          image: adguard/adguardhome:v0.107.41
+          image: adguard/adguardhome:v0.107.42
           imagePullPolicy: IfNotPresent
           env:
             - name: TZ
