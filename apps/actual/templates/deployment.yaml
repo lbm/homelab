@@ -22,7 +22,7 @@ spec:
       containers:
         - name: actual
           # renovate: datasource=docker
-          image: actualbudget/actual-server:23.12.1
+          image: actualbudget/actual-server:24.1.0
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
