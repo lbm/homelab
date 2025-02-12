@@ -1,0 +1,6 @@
+*.iso
+*.log
+*.png
+*.tgz
+Chart.lock
+charts
