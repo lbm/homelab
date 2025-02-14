@@ -13,3 +13,18 @@ manage self-hosted services on my personal Kubernetes cluster.
 [gitops]: https://about.gitlab.com/topics/gitops/
 [iac]: https://about.gitlab.com/topics/gitops/infrastructure-as-code/
 [homelab-intro]: https://www.reddit.com/r/homelab/wiki/introduction/
+
+## Getting Started
+
+Flux is used for continuous delivery (CD) on my homelab. The following command was used to bootstrap and cluster and should be reused when rotating Flux's PAT for GitHub.
+
+```sh
+flux bootstrap github \
+  --owner=lbm \
+  --repository=homelab \
+  --branch=main \
+  --private=false \
+  --path=clusters/homelab \
+  --personal \
+  --token-auth=false
+```
