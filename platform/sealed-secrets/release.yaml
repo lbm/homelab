@@ -26,3 +26,7 @@ spec:
       interval: 12h
   values:
     fullnameOverride: sealed-secrets-controller
+  install:
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
