@@ -1,0 +1,46 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: cloudflare-api-token
+  namespace: ingress-nginx
+spec:
+  encryptedData:
+    api-token: AgASC2+Q2ioj9fXaOMmQmy2XrC1DL0RjX4uh7F5IGhvy1lMJEzPv9AMAt8azQXM8sIQTCVP5SyW9EKhDnjOJyrnOQLBuM031q/FzzAQasQuyrEuQl55gTRKURVCiyAjwpDEPVGXE+fkTGNIJIQCo6mSU24eHZmo4QuJh5hapdZebYeruHAYvtjJCdcW8rEm7xatye/BVta9w27sCZieUUrsEtTU011n3Z5WtYfiqCRsa/DHcdS1KiLooHuPg1o1inDUOnECnDgsRn8X0lpmnkFVXGD5PtS8wgFULrDsIdY6UbnFS20fcVlazUyCcPM3GmRAasWctIDTvDgHyMcp0RMIUyQwBDgbaAWF7mrWwW5MzI86qKjpzr0XjKL2CXXqxDlI7XW6HfZ971oanU9YFr0wnFLHMR0aJ6rVO43hMtlqfCPswZhzKJS5jTpU/eGBvnIyMuc2PNfRjMT+DcBR7KJU2ML9qFYaDu60EO/e5xyRXEYie8v4d+3/njdhitp0TRgWTbD33krspV8XUzbfZsvRGCtDa0EGKl9LUzfcRbmlPijdHSaIEGthuXeqH/iSn46PZqCNGKW6X2rRBUEHjIXFK5Ydn3WT+qSnxSCbWPYN1pCcMnHSjqGYt8hvYVpDfbEoXiEC3ltisGxNvdyScTc0OnFL1w4pTCh0z5xzH4UEktCTs1tEPQqwcJ+bRMzWblDuhDGYG4Mxmlnb3Aez45Kva0acBmv/wI7vRTkbdUENdGUcyJRg2GYTU
+  template:
+    metadata:
+      name: cloudflare-api-token
+      namespace: ingress-nginx
+    type: Opaque
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt
+  namespace: ingress-nginx
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-account-key
+    solvers:
+      - dns01:
+          cloudflare:
+            apiTokenSecretRef:
+              name: cloudflare-api-token
+              key: api-token
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard-lachlan-io
+  namespace: ingress-nginx
+spec:
+  secretName: wildcard-lachlan-io-tls
+  dnsNames:
+    - '*.lachlan.io'
+  issuerRef:
+    name: letsencrypt
+    kind: Issuer
+  privateKey:
+    rotationPolicy: Always
