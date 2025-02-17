@@ -36,3 +36,5 @@ spec:
           lbipam.cilium.io/ips: 192.168.86.224
       ingressClassResource:
         default: true
+      extraArgs:
+        default-ssl-certificate: ingress-nginx/wildcard-lachlan-io-tls
