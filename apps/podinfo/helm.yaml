@@ -1,0 +1,31 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: podinfo
+  namespace: podinfo
+spec:
+  interval: 24h
+  url: https://stefanprodan.github.io/podinfo
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: podinfo
+  namespace: podinfo
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: podinfo
+      version: 6.7.1
+      sourceRef:
+        kind: HelmRepository
+        name: podinfo
+        namespace: podinfo
+  values:
+    redis:
+      enabled: true
+    ingress:
+      enabled: true
+      className: nginx
