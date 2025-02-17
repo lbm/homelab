@@ -29,3 +29,8 @@ spec:
     ingress:
       enabled: true
       className: nginx
+      hosts:
+        - host: podinfo.lachlan.io
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
