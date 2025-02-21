@@ -33,10 +33,10 @@ spec:
               tag: 25.2.1-alpine
     service:
       main:
+        controller: main
         ports:
           http:
             port: 5006
-            protocol: HTTP
     ingress:
       main:
         enabled: true
@@ -45,9 +45,8 @@ spec:
           - host: budget.lachlan.io
             paths:
               - path: /
-                pathType: Prefix
                 service:
-                  name: main
+                  identifier: main
                   port: http
     persistence:
       data:
