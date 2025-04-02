@@ -36,6 +36,7 @@ spec:
               PAPERLESS_ADMIN_USER: admin
               PAPERLESS_OCR_LANGUAGE: eng+jpn
               PAPERLESS_TIME_ZONE: Asia/Tokyo
+              PAPERLESS_OCR_LANGUAGES: jpn
             envFrom:
               - secret: paperless-secrets
           redis:
