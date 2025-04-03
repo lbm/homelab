@@ -19,7 +19,6 @@ spec:
     spec:
       chart: app-template
       version: 3.7.3
-      reconcileStrategy: Revision
       sourceRef:
         kind: HelmRepository
         name: paperless
@@ -56,6 +55,8 @@ spec:
       main:
         enabled: true
         className: nginx
+        annotations:
+          nginx.ingress.kubernetes.io/proxy-body-size: 50m
         hosts:
           - host: paperless.lachlan.io
             paths:
