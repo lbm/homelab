@@ -30,7 +30,7 @@ spec:
           main:
             image:
               repository: ghcr.io/paperless-ngx/paperless-ngx
-              tag: 2.14.7
+              tag: 2.15.0
             env:
               PAPERLESS_URL: https://paperless.lachlan.io
               PAPERLESS_ADMIN_USER: admin
