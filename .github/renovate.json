@@ -6,10 +6,10 @@
   ],
   "timezone": "Asia/Tokyo",
   "flux": {
-    "fileMatch": [
-      "(?:^|/)gotk-components\\.ya?ml$",
-      "platform/controllers/.+\\.ya?ml$",
-      "(?:^|/)helm\\.ya?ml$"
+    "managerFilePatterns": [
+      "/(?:^|/)gotk-components\\.ya?ml$/",
+      "/platform/controllers/.+\\.ya?ml$/",
+      "/(?:^|/)helm\\.ya?ml$/"
     ]
   }
 }
