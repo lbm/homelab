@@ -68,12 +68,12 @@ spec:
     persistence:
       data:
         existingClaim: pvc-97a964ae-7efe-4104-970a-99224b40b882
-        accessMode: ReadWriteOnce
-        size: 10Gi
-        advancedMounts:
-          main:
-            main:
-              - path: /usr/src/paperless/data
-                subPath: data
-              - path: /usr/src/paperless/media
-                subPath: media
+        # accessMode: ReadWriteOnce
+        # size: 10Gi
+        # advancedMounts:
+        #   main:
+        #     main:
+        #       - path: /usr/src/paperless/data
+        #         subPath: data
+        #       - path: /usr/src/paperless/media
+        #         subPath: media
