@@ -67,6 +67,7 @@ spec:
                   port: http
     persistence:
       data:
+        existingClaim: pvc-97a964ae-7efe-4104-970a-99224b40b882
         accessMode: ReadWriteOnce
         size: 10Gi
         advancedMounts:
