@@ -4,3 +4,4 @@
 *.tgz
 Chart.lock
 charts
+*unsealed.yaml
