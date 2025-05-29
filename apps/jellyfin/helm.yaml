@@ -1,0 +1,63 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: jellyfin
+  namespace: jellyfin
+spec:
+  interval: 24h
+  url: https://bjw-s-labs.github.io/helm-charts
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: jellyfin
+  namespace: jellyfin
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 4.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: jellyfin
+        namespace: jellyfin
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: docker.io/jellyfin/jellyfin
+              tag: 10.10.7
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: 8096
+    ingress:
+      main:
+        enabled: true
+        className: nginx
+        annotations:
+          nginx.ingress.kubernetes.io/proxy-body-size: 50m
+        hosts:
+          - host: jellyfin.lachlan.io
+            paths:
+              - path: /
+                service:
+                  identifier: main
+                  port: http
+    persistence:
+      data:
+        accessMode: ReadWriteOnce
+        size: 1Ti
+        globalMounts:
+          - path: /config
+            subPath: jellyfin/config
+          - path: /media/movies
+            subPath: movies
+          - path: /media/shows
+            subPath: shows

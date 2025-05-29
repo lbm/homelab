@@ -1,8 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - podinfo
-  - adguard-home
-  - actualbudget
-  - paperless
-  - jellyfin
+  - namespace.yaml
+  - helm.yaml
