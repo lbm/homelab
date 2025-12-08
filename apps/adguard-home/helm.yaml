@@ -30,7 +30,7 @@ spec:
           main:
             image:
               repository: adguard/adguardhome
-              tag: v0.107.62
+              tag: v0.107.71
             env:
               TZ: Asia/Tokyo
     service:
