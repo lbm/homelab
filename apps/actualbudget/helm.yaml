@@ -30,7 +30,7 @@ spec:
           main:
             image:
               repository: actualbudget/actual-server
-              tag: 25.12.0-alpine
+              tag: 26.1.0-alpine
     service:
       main:
         controller: main
